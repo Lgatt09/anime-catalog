@@ -1,0 +1,4 @@
+/images/naruto.jpg
+/images/one-piece.jpg
+/images/death-note.jpg
+/images/attack-on-titan.jpg

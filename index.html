@@ -1,44 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Catálogo de Anime</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #fafafa; }
-    table { width: 80%; margin: 2em auto; border-collapse: collapse; }
-    th, td { border: 1px solid #ccc; padding: 1em; text-align: center; }
-    img { max-width: 100px; }
-    h1 { text-align: center; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Anime y Manga Gratis</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Catálogo de Animes</h1>
-  <table>
-    <tr>
-      <th>Anime</th>
-      <th>Imagen</th>
-      <th>Ver</th>
-    </tr>
-    <tr>
-      <td>Naruto</td>
-      <td><img src="https://upload.wikimedia.org/wikipedia/en/9/94/NarutoCoverTankobon1.jpg" alt="Naruto"></td>
-      <td><a href="https://www.crunchyroll.com/series/GY9PJ5KWR/naruto" target="_blank">Ver</a></td>
-    </tr>
-    <tr>
-      <td>One Piece</td>
-      <td><img src="https://upload.wikimedia.org/wikipedia/en/6/6f/One_Piece_1.jpg" alt="One Piece"></td>
-      <td><a href="https://www.crunchyroll.com/series/GRMG8ZQZR/one-piece" target="_blank">Ver</a></td>
-    </tr>
-    <tr>
-      <td>Attack on Titan</td>
-      <td><img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shingeki_no_Kyojin_manga_volume_1.jpg" alt="Attack on Titan"></td>
-      <td><a href="https://www.crunchyroll.com/series/GR751KNZY/attack-on-titan" target="_blank">Ver</a></td>
-    </tr>
-  </table>
-</body>
-</html>
-      <td><a href="https://www.crunchyroll.com/series/GR751KNZY/attack-on-titan" target="_blank">Ver</a></td>
-    </tr>
-  </table>
+    <header>
+        <h1>Ver Anime y Manga Gratis</h1>
+        <nav>
+            <ul>
+                <li><a href="#animes">Animes</a></li>
+                <li><a href="#mangas">Mangas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <input type="text" id="search" placeholder="Buscar anime o manga...">
+    </header>
+
+    <main>
+        <section id="animes">
+            <h2>Animes</h2>
+            <div class="anime-list">
+                <div class="anime-item">
+                    <img src="images/naruto.jpg" alt="Naruto">
+                    <h3>Naruto</h3>
+                    <p>Descripción breve de Naruto.</p>
+                    <a href="https://example.com/naruto" target="_blank">Ver Anime</a>
+                </div>
+                <div class="anime-item">
+                    <img src="images/one-piece.jpg" alt="One Piece">
+                    <h3>One Piece</h3>
+                    <p>Descripción breve de One Piece.</p>
+                    <a href="https://example.com/one-piece" target="_blank">Ver Anime</a>
+                </div>
+                <!-- Agrega más animes aquí -->
+            </div>
+        </section>
+
+        <section id="mangas">
+            <h2>Mangas</h2>
+            <div class="manga-list">
+                <div class="manga-item">
+                    <img src="images/death-note.jpg" alt="Death Note">
+                    <h3>Death Note</h3>
+                    <p>Descripción breve de Death Note.</p>
+                    <a href="https://example.com/death-note" target="_blank">Leer Manga</a>
+                </div>
+                <div class="manga-item">
+                    <img src="images/attack-on-titan.jpg" alt="Attack on Titan">
+                    <h3>Attack on Titan</h3>
+                    <p>Descripción breve de Attack on Titan.</p>
+                    <a href="https://example.com/attack-on-titan" target="_blank">Leer Manga</a>
+                </div>
+                <!-- Agrega más mangas aquí -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ver Anime y Manga Gratis. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('search');
+            const animeList = document.querySelector('.anime-list');
+            const mangaList = document.querySelector('.manga-list');
+
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const items = animeList.querySelectorAll('.anime-item');
+                items.forEach(item => {
+                    const title = item.querySelector('h3').textContent.toLowerCase();
+                    if (title.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                const mangaItems = mangaList.querySelectorAll('.manga-item');
+                mangaItems.forEach(item => {
+                    const title = item.querySelector('h3').textContent.toLowerCase();
+                    if (title.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
